@@ -429,7 +429,7 @@ After configuring GCP integration:
 2. **Set Up Monitoring**: Configure alerts for sync failures
 3. **Implement Rotation**: Set up automatic secret rotation
 4. **Document Procedures**: Create runbooks for your team
-5. **Configure Azure**: [Azure Provider Configuration](./azure)
+5. **Configure Azure**: [Azure Provider Configuration](/docs/providers/azure)
 
 ## Support
 
@@ -437,4 +437,4 @@ If you encounter issues:
 
 - **GCP Documentation**: [Secret Manager Documentation](https://cloud.google.com/secret-manager/docs)
 - **Kavach Issues**: [GitHub Issues](https://github.com/Gkemhcs/kavach-docs/issues)
-- **Community Support**: [Discord Community](https://discord.gg/kavach) 
+- **Community Support**: [GitHub Discussions](https://github.com/Gkemhcs/kavach-docs/discussions) 

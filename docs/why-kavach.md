@@ -240,9 +240,9 @@ kavach secret sync --provider azure
 Kavach is more than just a tool—it's a movement towards better, more secure, and more efficient secret management. Join thousands of organizations that have already transformed their secret management with Kavach.
 
 ### **Ready to Get Started?**
-- 📖 [Quick Start Guide](./getting-started)
+- 📖 [Quick Start Guide](/docs/getting-started)
 - 🎥 [Video Tutorials](https://youtube.com/kavach)
-- 💬 [Community Discord](https://discord.gg/kavach)
+- 💬 [Community Discussions](https://github.com/Gkemhcs/kavach-docs/discussions)
 - 📧 [Enterprise Support](mailto:enterprise@kavach.dev)
 
 ### **Transform Your Secret Management Today**
