@@ -335,7 +335,7 @@ After successful installation:
 
 If you encounter issues during installation:
 
-- 📚 [Documentation](/docs) - Complete documentation
+- 📚 [Getting Started](/docs/getting-started) - Complete documentation
 - 🐛 [Issues](https://github.com/Gkemhcs/kavach-docs/issues) - Report installation problems
 - 💬 [Discussions](https://github.com/Gkemhcs/kavach-docs/discussions) - Ask for help
 - ⭐ [GitHub](https://github.com/Gkemhcs/kavach-docs) - Star the project 

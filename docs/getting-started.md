@@ -126,13 +126,13 @@ kavach secret sync --provider github
 
 - 📖 [CLI Reference](/docs/cli/overview) - Complete command reference
 - 🏗️ [Architecture Guide](/docs/architecture/overview) - Deep dive into system design
-- 🔒 [Security Overview](/docs/security/overview) - Security features and best practices
+- 🔒 [CLI Authentication](/docs/cli/authentication) - Security features and best practices
 - 🚀 [Quick Start Guide](/docs/guides/quickstart) - Step-by-step setup tutorial
-- ☁️ [Multi-Cloud Setup](/docs/guides/multi-cloud) - Configure multiple providers
+- ☁️ [Provider Commands](/docs/cli/commands/provider) - Configure multiple providers
 
 ## Support
 
-- 📚 [Documentation](/docs) - Complete documentation
+- 📚 [Getting Started](/docs/getting-started) - Complete documentation
 - 🐛 [Issues](https://github.com/Gkemhcs/kavach-docs/issues) - Report bugs
 - 💬 [Discussions](https://github.com/Gkemhcs/kavach-docs/discussions) - Ask questions
 - ⭐ [GitHub](https://github.com/Gkemhcs/kavach-docs) - Star the project

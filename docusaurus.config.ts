@@ -94,8 +94,8 @@ const config: Config = {
                 to: '/docs/cli/overview',
               },
               {
-                label: 'API Reference',
-                to: '/docs/api/overview',
+                label: 'CLI Reference',
+                to: '/docs/cli/overview',
               },
             ],
           },
@@ -125,8 +125,8 @@ const config: Config = {
                 to: '/docs/architecture/overview',
               },
               {
-                label: 'Security',
-                to: '/docs/security/overview',
+                label: 'Architecture',
+                to: '/docs/architecture/overview',
               },
             ],
           },

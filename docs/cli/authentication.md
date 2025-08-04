@@ -332,6 +332,6 @@ After successful authentication:
 For authentication issues:
 
 - 📚 [CLI Reference](/docs/cli/overview) - Complete command documentation
-- 🔒 [Security Guide](/docs/security/overview) - Security best practices
+- 🔒 [CLI Overview](/docs/cli/overview) - Security best practices
 - 🐛 [Issues](https://github.com/Gkemhcs/kavach-docs/issues) - Report authentication problems
 - 💬 [Discussions](https://github.com/Gkemhcs/kavach-docs/discussions) - Ask for help 

@@ -301,16 +301,16 @@ kavach secret rollback --version "stable_version" --message "Rollback to stable"
 
 - 📖 [CLI Reference](/docs/cli/overview) - Complete command documentation
 - 🏗️ [Architecture Guide](/docs/architecture/overview) - System design details
-- 🔒 [Security Guide](/docs/security/overview) - Security best practices
+- 🔒 [CLI Authentication](/docs/cli/authentication) - Security best practices
 - 🐛 [Issues](https://github.com/Gkemhcs/kavach-docs/issues) - Report problems
 
 ## Next Steps
 
 Now that you've completed the quick start:
 
-1. **Explore Advanced Features**: [Multi-cloud setup](/docs/guides/multi-cloud)
-2. **Set Up CI/CD**: [CI/CD integration](/docs/guides/ci-cd)
-3. **Security Hardening**: [Security best practices](/docs/security/overview)
+1. **Explore Advanced Features**: [Provider Commands](/docs/cli/commands/provider)
+2. **Set Up CI/CD**: [Provider Commands](/docs/cli/commands/provider)
+3. **Security Hardening**: [CLI Authentication](/docs/cli/authentication)
 4. **Team Management**: [User and group management](/docs/cli/overview#user-group-commands)
 
 ---

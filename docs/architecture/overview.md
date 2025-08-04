@@ -381,8 +381,6 @@ Content-Type: application/json
 
 ## Next Steps
 
-- 🏗️ [Backend Architecture](/docs/architecture/backend) - Detailed backend design
-- 💻 [CLI Architecture](/docs/architecture/cli) - CLI design patterns
-- 🗄️ [Database Design](/docs/architecture/database) - Database schema details
-- 🔒 [Security Architecture](/docs/architecture/security) - Security implementation
-- 🚀 [Deployment Guide](/docs/guides/deployment) - Production deployment 
+- 💻 [CLI Overview](/docs/cli/overview) - CLI design patterns
+- 🔒 [CLI Authentication](/docs/cli/authentication) - Security implementation
+- 🚀 [Quick Start Guide](/docs/guides/quickstart) - Production deployment 

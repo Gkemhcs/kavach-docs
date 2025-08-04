@@ -384,4 +384,4 @@ After configuring providers:
 
 1. **Store Secrets**: [Secret Management](/docs/cli/commands/secret)
 2. **Sync Secrets**: [Secret Synchronization](/docs/cli/commands/secret#kavach-secret-sync)
-3. **Set Up CI/CD**: [CI/CD Integration](/docs/guides/ci-cd) 
+3. **Set Up CI/CD**: [Provider Commands](/docs/cli/commands/provider) 

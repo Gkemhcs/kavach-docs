@@ -561,7 +561,7 @@ After configuring Azure integration:
 2. **Set Up Monitoring**: Configure alerts for sync failures
 3. **Implement Rotation**: Set up automatic secret rotation
 4. **Document Procedures**: Create runbooks for your team
-5. **Configure GCP**: [GCP Provider Configuration](./gcp)
+5. **Configure GCP**: [GCP Provider Configuration](/docs/providers/gcp)
 
 ## Support
 
@@ -569,4 +569,4 @@ If you encounter issues:
 
 - **Azure Documentation**: [Key Vault Documentation](https://docs.microsoft.com/en-us/azure/key-vault/)
 - **Kavach Issues**: [GitHub Issues](https://github.com/Gkemhcs/kavach-docs/issues)
-- **Community Support**: [Discord Community](https://discord.gg/kavach) 
+- **Community Support**: [GitHub Discussions](https://github.com/Gkemhcs/kavach-docs/discussions) 

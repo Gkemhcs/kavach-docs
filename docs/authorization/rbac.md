@@ -637,7 +637,7 @@ Regular permission audits should include:
 
 ## Support and Resources
 
-- **Documentation**: [Kavach RBAC Guide](https://docs.kavach.dev/authorization/rbac)
-- **API Reference**: [Auth API Documentation](https://docs.kavach.dev/api/auth)
-- **Examples**: [RBAC Examples Repository](https://github.com/kavach/examples)
-- **Community**: [Discord Community](https://discord.gg/kavach) 
+- **Documentation**: [CLI Overview](/docs/cli/overview)
+- **Authentication**: [CLI Authentication](/docs/cli/authentication)
+- **Examples**: [GitHub Repository](https://github.com/Gkemhcs/kavach-docs)
+- **Community**: [GitHub Discussions](https://github.com/Gkemhcs/kavach-docs/discussions) 

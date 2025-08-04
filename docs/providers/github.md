@@ -401,7 +401,7 @@ After configuring GitHub integration:
 2. **Set Up Workflows**: Configure GitHub Actions for automated sync
 3. **Implement Environments**: Set up environment-specific secrets
 4. **Document Procedures**: Create runbooks for your team
-5. **Configure Other Providers**: [Azure Provider Configuration](./azure) | [GCP Provider Configuration](./gcp)
+5. **Configure Other Providers**: [Azure Provider Configuration](/docs/providers/azure) | [GCP Provider Configuration](/docs/providers/gcp)
 
 ## Support
 
@@ -409,4 +409,4 @@ If you encounter issues:
 
 - **GitHub Documentation**: [GitHub Actions Secrets](https://docs.github.com/en/actions/security-guides/encrypted-secrets)
 - **Kavach Issues**: [GitHub Issues](https://github.com/Gkemhcs/kavach-docs/issues)
-- **Community Support**: [Discord Community](https://discord.gg/kavach)
+- **Community Support**: [GitHub Discussions](https://github.com/Gkemhcs/kavach-docs/discussions)

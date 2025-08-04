@@ -602,6 +602,6 @@ kavach provider list
 ## Next Steps
 
 - 📖 [Provider Commands](/docs/cli/commands/provider) - Cloud provider integration
-- 🔄 [Multi-Cloud Setup](/docs/guides/multi-cloud) - Configure multiple providers
-- 🔒 [Security Best Practices](/docs/security/overview) - Security guidelines
-- 🚀 [CI/CD Integration](/docs/guides/ci-cd) - Automated secret management 
+- 🔄 [Provider Commands](/docs/cli/commands/provider) - Configure multiple providers
+- 🔒 [CLI Authentication](/docs/cli/authentication) - Security guidelines
+- 🚀 [Provider Commands](/docs/cli/commands/provider) - Automated secret management 
