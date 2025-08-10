@@ -7,6 +7,30 @@ keywords: ["kavach getting started", "kavach installation", "kavach cli setup", 
 
 # Getting Started with Kavach
 
+<div class="dev-alert">
+  <div class="dev-alert-content">
+    <div class="dev-alert-icon">🚧</div>
+    <div class="dev-alert-text">
+      <strong>🚀 Kavach is currently in active development!</strong>
+      <p>
+        We're working hard to make Kavach the best secret management platform. 
+        Your feedback, suggestions, and contributions are invaluable to us!
+      </p>
+      <div class="dev-alert-actions">
+        <a href="https://github.com/Gkemhcs/kavach-cli/issues" target="_blank" rel="noopener noreferrer" class="dev-alert-button">
+          📝 Report Issues
+        </a>
+        <a href="https://github.com/Gkemhcs/kavach-cli/discussions" target="_blank" rel="noopener noreferrer" class="dev-alert-button">
+          💬 Join Discussion
+        </a>
+        <a href="mailto:gudikotieswarmani@gmail.com" class="dev-alert-button">
+          📧 Contact Us
+        </a>
+      </div>
+    </div>
+  </div>
+</div>
+
 Welcome to **Kavach** - the enterprise-grade secret management and synchronization platform. This comprehensive guide will help you get started with Kavach and understand its core concepts for secure secret management.
 
 ## What is Kavach?
@@ -20,7 +44,7 @@ Kavach is a comprehensive secret management solution designed for modern cloud-n
 - 👥 **Role-Based Access Control** - Enterprise-grade authorization with RBAC
 - 🏢 **Multi-Tenant Architecture** - Organization and group-based isolation
 - 🚀 **CLI-First Design** - Developer-friendly command-line interface
-- 🔒 **Zero-Trust Security** - End-to-end encryption and audit trails
+- 🔒 **Zero-Trust Security** - End-to-end encryption and comprehensive logging
 
 ## Architecture Overview
 

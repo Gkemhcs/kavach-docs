@@ -1,5 +1,8 @@
 ---
 sidebar_position: 4
+title: "Environment Commands - Kavach CLI Reference"
+description: "Learn how to manage environments in Kavach using CLI commands. Create, list, activate, and delete environments for different deployment stages."
+keywords: ["kavach env", "environment commands", "kavach cli", "environment management", "dev staging prod", "kavach docs", "secret management environments"]
 ---
 
 # Environment Commands
@@ -256,48 +259,137 @@ kavach env grant staging --user "sarah" --role viewer --org "startup" --secret-g
 
 ### `kavach env revoke`
 
-🚫 Revoke permissions from users or groups
+🚫 Revoke user or group access from an environment
 
 #### Description
 
-Revoke permissions from users or user groups within an environment.
+Revoke access for a user or group from an environment. This command removes the specified role assignment.
+
+#### Key Features
+
+- **Remove user access** by revoking their role
+- **Remove group access** by revoking their role
+- **Immediate effect** - access is revoked immediately
+- **Activity logging** - all revocations are logged
 
 #### Usage
 
 ```bash
-kavach env revoke <environment-name> [flags]
+kavach env revoke <environment> [flags]
 ```
 
 #### Arguments
 
 | Argument | Description | Required |
 |----------|-------------|----------|
-| `environment-name` | Name of the environment to revoke permissions from | Yes |
+| `environment` | Name of the environment | Yes |
 
 #### Flags
 
-| Flag | Description | Required |
-|------|-------------|----------|
-| `--user, -u` | GitHub username to revoke permissions from | Yes* |
-| `--group, -g` | User group name to revoke permissions from | Yes* |
-| `--role, -r` | Role to revoke (admin, editor, viewer) | Yes |
-| `--org, -o` | Organization name where the environment exists | Yes |
-| `--secret-group, -s` | Secret group name containing the environment | Yes |
+| Flag | Description | Required | Default |
+|------|-------------|----------|---------|
+| `--user` | Username or email to revoke access from | No* | "" |
+| `--group` | Group name to revoke access from | No* | "" |
 
-*One of `--user` or `--group` is required.
+*Either `--user` or `--group` must be specified
 
 #### Examples
 
 ```bash
-# Revoke admin role from user
-kavach env revoke prod --user "john.doe" --role admin --org "mycompany" --secret-group "myapp"
+# Revoke user access
+kavach env revoke "production" --user "john@example.com"
 
-# Revoke editor role from user group
-kavach env revoke development --group "developers" --role editor --org "mycompany" --secret-group "myapp"
-
-# Revoke viewer role from user
-kavach env revoke staging --user "sarah" --role viewer --org "startup" --secret-group "backend"
+# Revoke group access
+kavach env revoke "production" --group "developers"
 ```
+
+### `kavach env list-bindings`
+
+🔍 List all role bindings for an environment
+
+#### Description
+
+Display all role bindings (user and group permissions) for a specific environment. This command shows who has access to the environment and what roles they have.
+
+#### Key Features
+
+- **View all users** with access to the environment
+- **View all groups** with access to the environment
+- **See role assignments** for each user/group
+- **Check permissions** before making changes
+
+#### Usage
+
+```bash
+kavach env list-bindings <environment> [flags]
+```
+
+#### Arguments
+
+| Argument | Description | Required |
+|----------|-------------|----------|
+| `environment` | Name of the environment | Yes |
+
+#### Flags
+
+| Flag | Description | Required | Default |
+|------|-------------|----------|---------|
+| `--org, -o` | Organization name (required) | Yes | - |
+| `--group, -g` | Secret group name (required) | Yes | - |
+
+#### Examples
+
+```bash
+# List all bindings in table format
+kavach env list-bindings "production"
+
+# List all bindings for the environment
+kavach env list-bindings "production" --org "mycompany" --group "myapp"
+```
+
+#### Example Output
+
+```bash
+$ kavach env list-bindings "production" --org "mycompany" --group "myapp"
+Role bindings for environment 'production' in organization 'mycompany' and secret group 'myapp':
+Total bindings: 8
+
+Direct Bindings
+---------------
+┌─────────┬─────────────────────┬─────────┐
+│ Type    │ Name                │ Role    │
+├─────────┼─────────────────────┼─────────┤
+│ 👤 User │ admin@company.com   │ owner   │
+│ 👤 User │ john@company.com    │ admin   │
+│ 👥 Group│ developers          │ editor  │
+│ 👥 Group│ qa-team             │ viewer  │
+└─────────┴─────────────┴─────────┘
+
+Inherited from Secret Group: myapp
+--------------------------------------------
+┌─────────┬─────────────────────┬─────────┐
+│ Type    │ Name                │ Role    │
+├─────────┼─────────────────────┼─────────┤
+│ 👤 User │ devops@company.com  │ editor  │
+│ 👥 Group│ infrastructure      │ viewer  │
+└─────────┴─────────────┴─────────┘
+
+Inherited from Organization: mycompany
+---------------------------------------
+┌─────────┬─────────────────────┬─────────┐
+│ Type    │ Name                │ Role    │
+├─────────┼─────────────────────┼─────────┤
+│ 👤 User │ ceo@company.com     │ admin   │
+│ 👥 Group│ executives          │ viewer  │
+└─────────┴─────────────┴─────────┘
+```
+
+**Note**: The output shows three types of bindings:
+1. **Direct Bindings**: Specific to this environment
+2. **Inherited from Secret Group**: Inherited from the parent secret group
+3. **Inherited from Organization**: Inherited from the organization level
+
+This demonstrates Kavach's hierarchical permission system where permissions cascade down through the resource hierarchy.
 
 ## Workflow Examples
 
@@ -316,8 +408,11 @@ kavach env list
 kavach env activate development
 
 # 4. Grant permissions to team members
-kavach env grant development --user "john@example.com" --role admin --org "mycompany" --secret-group "myapp"
-kavach env grant development --user "jane@example.com" --role editor --org "mycompany" --secret-group "myapp"
+kavach env grant development --user "john@example.com" --role admin
+kavach env grant development --user "jane@example.com" --role editor
+
+# 5. Check current permissions
+kavach env list-bindings development
 ```
 
 ### Multi-Environment Workflow
@@ -332,6 +427,9 @@ kavach secret commit --message "Add development secrets"
 kavach env activate production
 kavach secret add --name "database-url" --value "postgresql://prod:pass@prod-db:5432/prod"
 kavach secret commit --message "Add production secrets"
+
+# 3. Verify production permissions
+kavach env list-bindings production
 ```
 
 ## Best Practices
@@ -352,10 +450,23 @@ kavach env create env --description "Environment"  # Too generic
 
 ```bash
 # Grant minimal required permissions
-kavach env grant production --user "viewer@company.com" --role viewer --org "mycompany" --secret-group "myapp"
-kavach env grant development --user "developer@company.com" --role editor --org "mycompany" --secret-group "myapp"
-kavach env grant staging --user "admin@company.com" --role admin --org "mycompany" --secret-group "myapp"
+kavach env grant production --user "viewer@company.com" --role viewer
+kavach env grant development --user "developer@company.com" --role editor
+kavach env grant staging --user "admin@company.com" --role admin
+
+# Use list-bindings to verify permissions
+kavach env list-bindings production
+kavach env list-bindings development
+kavach env list-bindings staging
 ```
+
+### 3. Security Considerations
+
+- **Regular Access Review**: Periodically review and update permissions using `list-bindings`
+- **Principle of Least Privilege**: Grant only necessary permissions
+- **User Group Management**: Use groups for easier permission management
+- **Activity Monitoring**: Monitor environment changes and access
+- **Permission Verification**: Use `list-bindings` to verify current permissions
 
 ## Next Steps
 

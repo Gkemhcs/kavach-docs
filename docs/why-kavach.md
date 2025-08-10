@@ -1,5 +1,8 @@
 ---
 sidebar_position: 1
+title: "Why Choose Kavach? - Enterprise Secret Management Solution"
+description: "Discover why Kavach is the ultimate secret management solution for modern applications. Learn about its revolutionary features, security benefits, and developer experience."
+keywords: ["why kavach", "secret management solution", "enterprise security", "kavach benefits", "hashicorp vault alternative", "devops security", "cloud secrets", "kavach docs"]
 ---
 
 # Why Kavach?
@@ -58,7 +61,7 @@ Kavach is not just another secret management tool—it's a complete paradigm shi
 - **Centralized Management**: All secrets in one place, accessible from anywhere
 - **Hierarchical Organization**: Organizations → Secret Groups → Environments → Secrets
 - **Version Control**: Git-like versioning for all secret changes
-- **Audit Trail**: Complete history of who changed what and when
+- **Version History**: Complete history of who changed what and when
 
 #### **Multi-Provider Synchronization**
 ```bash
@@ -78,7 +81,7 @@ kavach secret sync --provider azure,gcp,github
 - **Four Roles**: Owner, Admin, Editor, Viewer with precise permissions
 - **Hierarchical Inheritance**: Permissions cascade down resource hierarchy
 - **Group Management**: Efficient user group management for large organizations
-- **Audit Compliance**: Complete audit trail for compliance requirements
+- **Compliance Ready**: Built-in compliance features for enterprise requirements
 
 #### **Example RBAC Structure**
 ```yaml
@@ -148,7 +151,7 @@ rotation:
 #### **Security Features**
 - **Encryption at Rest**: AES-256 encryption for all stored secrets
 - **Encryption in Transit**: TLS 1.3 for all communications
-- **Access Logging**: Comprehensive audit logs
+- **Access Logging**: Comprehensive access logging (audit logs coming soon!)
 
 #### **Security Architecture**
 ```
@@ -167,6 +170,17 @@ rotation:
                        │  (Encrypted)    │
                        └─────────────────┘
 ```
+
+## 🔮 **Coming Soon: Enhanced Audit & Compliance**
+
+We're actively working on implementing comprehensive audit logging and compliance features to make Kavach even more enterprise-ready:
+
+- **🔍 Comprehensive Audit Logs**: Track every action, access, and change with detailed metadata
+- **📊 Compliance Reporting**: Built-in reports for SOC2, ISO27001, and other compliance frameworks
+- **🚨 Real-time Alerts**: Get notified of suspicious activities and policy violations
+- **📈 Analytics Dashboard**: Visualize access patterns and security metrics
+
+*Stay tuned for these powerful features that will make Kavach the most comprehensive secret management platform available!*
 
 ## 🚀 **Getting Started is Simple**
 

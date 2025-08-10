@@ -69,6 +69,12 @@ The CLI provides a developer-friendly interface:
                        └─────────────────┘
 ```
 
+## Detailed Architecture Diagram
+
+![Kavach Architecture](/img/kavach-arch.jpg)
+
+*Kavach's comprehensive architecture showing the relationship between organizations, secret groups, environments, and providers. The platform follows a hierarchical structure where organizations contain secret groups, which in turn contain environments where secrets are stored and managed.*
+
 ## Data Flow
 
 ### 1. Authentication Flow

@@ -52,7 +52,7 @@ const config: Config = {
           customCss: './src/css/custom.css',
         },
 
-        // SEO Plugin Configuration
+        // Sitemap Configuration
         sitemap: {
           changefreq: 'weekly',
           priority: 0.5,
@@ -60,7 +60,7 @@ const config: Config = {
           filename: 'sitemap.xml',
         },
 
-      
+       
 
         // Google Tag Manager
         gtag: {
@@ -74,6 +74,14 @@ const config: Config = {
   themeConfig: {
     // Replace with your project's social card
     image: 'img/kavach-og.png',
+    // SEO and Meta Configuration
+    metadata: [
+      {name: 'keywords', content: 'kavach, kavach secret, kavach secret tool, kavach secret management, kavach cli, kavach secrets, secret management tool, secret management cli, secret management platform, devops, cli, cloud security, gcp, azure, aws, github, vault, secrets, encryption, rbac, access control, enterprise security, kubernetes secrets, docker secrets, hashicorp vault alternative, secret synchronization, secret rotation, secret automation, devops security, cloud secrets, api keys, passwords, tokens, credentials management'},
+      {name: 'description', content: 'Kavach is an enterprise-grade secret management and synchronization platform. Manage secrets securely with CLI-first design, multi-cloud sync, and role-based access control. The ultimate kavach secret tool for DevOps teams.'},
+      {name: 'author', content: 'Kavach Team'},
+      {name: 'robots', content: 'index, follow'},
+      {name: 'googlebot', content: 'index, follow'},
+    ],
     navbar: {
       title: 'Kavach Docs',
       logo: {
@@ -173,8 +181,8 @@ const config: Config = {
     
     // SEO and Search Configuration
     algolia: {
-      appId: '51DYTU5JI5', // TODO: Replace with your Algolia app ID (e.g., ABCDEFGHIJ)
-      apiKey: '67043e540a0b72cc29878f3783585884', // TODO: Replace with your Algolia search API key (e.g., abc123def456...)
+      appId: '4URBUECIF9', // TODO: Replace with your Algolia app ID (e.g., ABCDEFGHIJ)
+      apiKey: '56e4f28e45a105abb484f37a3555c158', // TODO: Replace with your Algolia search API key (e.g., abc123def456...)
       indexName: 'kavach-docs',
       contextualSearch: true,
       searchParameters: {},

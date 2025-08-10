@@ -344,47 +344,122 @@ kavach group grant "backend" --user "sarah" --role viewer --org "startup"
 
 ### `kavach group revoke`
 
-🚫 Revoke permissions from users or groups
+🚫 Revoke user or group access from a secret group
 
 #### Description
 
-Revoke permissions from users or user groups within a secret group. This removes their access to the secret group and its resources.
+Revoke access for a user or group from a secret group. This command removes the specified role assignment.
+
+#### Key Features
+
+- **Remove user access** by revoking their role
+- **Remove group access** by revoking their role
+- **Immediate effect** - access is revoked immediately
+- **Activity logging** - all revocations are logged
 
 #### Usage
 
 ```bash
-kavach group revoke <secret-group-name> [flags]
+kavach group revoke <secret-group> [flags]
 ```
 
 #### Arguments
 
 | Argument | Description | Required |
 |----------|-------------|----------|
-| `secret-group-name` | Name of the secret group to revoke permissions from | Yes |
+| `secret-group` | Name of the secret group | Yes |
 
 #### Flags
 
-| Flag | Description | Required |
-|------|-------------|----------|
-| `--user, -u` | GitHub username to revoke permissions from | Yes* |
-| `--group, -g` | User group name to revoke permissions from | Yes* |
-| `--role, -r` | Role to revoke (admin, editor, viewer) | Yes |
-| `--org, -o` | Organization name where the secret group exists | Yes |
+| Flag | Description | Required | Default |
+|------|-------------|----------|---------|
+| `--user` | Username or email to revoke access from | No* | "" |
+| `--group` | Group name to revoke access from | No* | "" |
 
-*One of `--user` or `--group` is required.
+*Either `--user` or `--group` must be specified
 
 #### Examples
 
 ```bash
-# Revoke admin role from user
-kavach group revoke "myapp" --user "john.doe" --role admin --org "mycompany"
+# Revoke user access
+kavach group revoke "backend" --user "john@example.com"
 
-# Revoke editor role from user group
-kavach group revoke "myapp" --group "developers" --role editor --org "mycompany"
-
-# Revoke viewer role from user
-kavach group revoke "backend" --user "sarah" --role viewer --org "startup"
+# Revoke group access
+kavach group revoke "backend" --group "developers"
 ```
+
+### `kavach group list-bindings`
+
+🔍 List all role bindings for a secret group
+
+#### Description
+
+Display all role bindings (user and group permissions) for a specific secret group. This command shows who has access to the secret group and what roles they have.
+
+#### Key Features
+
+- **View all users** with access to the secret group
+- **View all groups** with access to the secret group
+- **See role assignments** for each user/group
+- **Check permissions** before making changes
+
+#### Usage
+
+```bash
+kavach group list-bindings <secret-group> [flags]
+```
+
+#### Arguments
+
+| Argument | Description | Required |
+|----------|-------------|----------|
+| `secret-group` | Name of the secret group | Yes |
+
+#### Flags
+
+| Flag | Description | Required | Default |
+|------|-------------|----------|---------|
+| `--org, -o` | Organization name (required) | Yes | - |
+
+#### Examples
+
+```bash
+# List all bindings in table format
+kavach group list-bindings "backend"
+
+# List all bindings for the secret group
+kavach group list-bindings "backend" --org "mycompany"
+```
+
+#### Example Output
+
+```bash
+$ kavach group list-bindings "backend" --org "mycompany"
+Role bindings for secret group 'backend' in organization 'mycompany':
+Total bindings: 6
+
+Direct Bindings
+---------------
+┌─────────┬─────────────────────┬─────────┐
+│ Type    │ Name                │ Role    │
+├─────────┼─────────────────────┼─────────┤
+│ 👤 User │ admin@company.com   │ owner   │
+│ 👤 User │ john@company.com    │ admin   │
+│ 👥 Group│ developers          │ editor  │
+│ 👥 Group│ qa-team             │ viewer  │
+└─────────┴─────────────┴─────────┘
+
+Inherited from Organization: mycompany
+---------------------------------------
+┌─────────┬─────────────────────┬─────────┐
+│ Type    │ Name                │ Role    │
+├─────────┼─────────────────────┼─────────┤
+│ 👤 User │ ceo@company.com     │ admin   │
+│ 👥 Group│ executives          │ viewer  │
+└─────────┴─────────────┴─────────┘
+```
+
+**Note**: The output shows both direct bindings (specific to this secret group) and inherited bindings (from the organization level). Users and groups can inherit permissions from higher levels in the resource hierarchy.
 
 ## Workflow Examples
 
@@ -484,7 +559,7 @@ kavach group create client-projects --description "Client-specific projects"
 - **Regular Access Review**: Periodically review and update permissions
 - **Principle of Least Privilege**: Grant only necessary permissions
 - **User Group Management**: Use groups for easier permission management
-- **Audit Trail**: Monitor secret group changes and access
+- **Activity Monitoring**: Monitor secret group changes and access
 
 ## Use Cases
 
@@ -530,7 +605,7 @@ kavach group create project-gamma --description "Gamma project secrets"
    ```bash
    # Error: Access denied
    # Solution: Check your role in the secret group
-   kavach group list
+   kavach group list-bindings "secret-group-name"
    ```
 
 3. **Duplicate Secret Group**
@@ -545,6 +620,15 @@ kavach group create project-gamma --description "Gamma project secrets"
    # Error: No default organization is set
    # Solution: Set active organization
    kavach org activate mycompany
+   ```
+
+5. **Permission Issues**
+   ```bash
+   # Check current permissions
+   kavach group list-bindings "secret-group-name"
+   
+   # Verify your role
+   kavach group list
    ```
 
 ### Debug Commands

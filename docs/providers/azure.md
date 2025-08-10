@@ -390,7 +390,7 @@ az keyvault secret list --vault-name "your-key-vault-name"
 
 1. **Principle of Least Privilege**
    - Only assign necessary permissions
-   - Regularly review and audit permissions
+   - Regularly review permissions
    - Use custom roles for specific requirements
 
 2. **Secret Management**

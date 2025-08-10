@@ -341,87 +341,162 @@ kavach org grant "startup" --user "sarah" --role viewer
 
 ### `kavach org revoke`
 
-🚫 Revoke permissions from users or groups
+🚫 Revoke user or group access from an organization
 
 #### Description
 
-Revoke permissions from users or user groups within an organization. This removes their access to the organization and its resources.
+Revoke access for a user or group from an organization. This command removes the specified role assignment.
+
+#### Key Features
+
+- **Remove user access** by revoking their role
+- **Remove group access** by revoking their role
+- **Immediate effect** - access is revoked immediately
+- **Activity logging** - all revocations are logged
 
 #### Usage
 
 ```bash
-kavach org revoke <organization-name> [flags]
+kavach org revoke <organization> [flags]
 ```
 
 #### Arguments
 
 | Argument | Description | Required |
 |----------|-------------|----------|
-| `organization-name` | Name of the organization to revoke permissions from | Yes |
+| `organization` | Name of the organization | Yes |
 
 #### Flags
 
-| Flag | Description | Required |
-|------|-------------|----------|
-| `--user, -u` | GitHub username to revoke permissions from | Yes* |
-| `--group, -g` | User group name to revoke permissions from | Yes* |
-| `--role, -r` | Role to revoke (admin, editor, viewer) | Yes |
+| Flag | Description | Required | Default |
+|------|-------------|----------|---------|
+| `--user` | Username or email to revoke access from | No* | "" |
+| `--group` | Group name to revoke access from | No* | "" |
 
-*One of `--user` or `--group` is required.
+*Either `--user` or `--group` must be specified
 
 #### Examples
 
 ```bash
-# Revoke admin role from user
-kavach org revoke "mycompany" --user "john.doe" --role admin
+# Revoke user access
+kavach org revoke "mycompany" --user "john@example.com"
 
-# Revoke editor role from user group
-kavach org revoke "mycompany" --group "developers" --role editor
-
-# Revoke viewer role from user
-kavach org revoke "startup" --user "sarah" --role viewer
+# Revoke group access
+kavach org revoke "mycompany" --group "developers"
 ```
 
-## Workflow Examples
+### `kavach org list-bindings`
 
-### Complete Organization Setup
+🔍 List all role bindings for an organization
+
+#### Description
+
+Display all role bindings (user and group permissions) for a specific organization. This command shows who has access to the organization and what roles they have.
+
+#### Key Features
+
+- **View all users** with access to the organization
+- **View all groups** with access to the organization
+- **See role assignments** for each user/group
+- **Check permissions** before making changes
+
+#### Usage
+
+```bash
+kavach org list-bindings <organization> [flags]
+```
+
+#### Arguments
+
+| Argument | Description | Required |
+|----------|-------------|----------|
+| `organization` | Name of the organization | Yes |
+
+#### Flags
+
+| Flag | Description | Required | Default |
+|------|-------------|----------|---------|
+| *No additional flags required* | This command only requires the organization name | - | - |
+
+#### Examples
+
+```bash
+# List all bindings in table format
+kavach org list-bindings "mycompany"
+
+# List all bindings for the organization
+kavach org list-bindings "mycompany"
+```
+
+#### Example Output
+
+```bash
+$ kavach org list-bindings "mycompany"
+Role bindings for organization 'mycompany':
+Total bindings: 6
+
+Direct Bindings
+---------------
+┌─────────┬─────────────────────┬─────────┐
+│ Type    │ Name                │ Role    │
+├─────────┼─────────────────────┼─────────┤
+│ 👤 User │ admin@company.com   │ owner   │
+│ 👤 User │ john@company.com    │ admin   │
+│ 👥 Group│ developers          │ editor  │
+│ 👥 Group│ qa-team             │ viewer  │
+└─────────┴─────────────┴─────────┘
+
+Inherited from Organization: mycompany
+---------------------------------------
+┌─────────┬─────────────────────┬─────────┐
+│ Type    │ Name                │ Role    │
+├─────────┼─────────────────────┼─────────┤
+│ 👤 User │ ceo@company.com     │ admin   │
+│ 👥 Group│ executives          │ viewer  │
+└─────────┴─────────────┴─────────┘
+```
+
+**Note**: The output shows both direct bindings (specific to this organization) and inherited bindings. In organizations, inherited bindings typically come from system-wide roles or parent organizations if you have a multi-tenant setup.
+
+## Use Cases
+
+### 1. Organization Setup
 
 ```bash
 # 1. Create organization
 kavach org create mycompany --description "My company organization"
 
-# 2. List organizations
-kavach org list
+# 2. Grant admin access to team lead
+kavach org grant "mycompany" --user "teamlead@company.com" --role admin
 
-# 3. Activate organization
-kavach org activate mycompany
-
-# 4. Grant permissions to team members
-kavach org grant "mycompany" --user "john@example.com" --role admin
-kavach org grant "mycompany" --user "jane@example.com" --role editor
-
-# 5. Create user group and grant permissions
+# 3. Create user group for developers
 kavach user-group create developers --description "Development team"
+
+# 4. Grant editor access to developers group
 kavach org grant "mycompany" --group "developers" --role editor
+
+# 5. Grant viewer access to QA team
+kavach org grant "mycompany" --group "qa-team" --role viewer
 ```
 
-### Organization Management
+### 2. Permission Management
 
 ```bash
-# 1. Check current organization
-kavach org list
+# 1. Check current permissions
+kavach org list-bindings "mycompany"
 
-# 2. Switch to different organization
-kavach org activate project-alpha
-
-# 3. Grant new team member access
+# 2. Grant new team member access
 kavach org grant "mycompany" --user "newdev@company.com" --role editor
 
-# 4. Remove access for departed team member
-kavach org revoke "mycompany" --user "olddev@company.com" --role editor
+# 3. Remove access for departed team member
+kavach org revoke "mycompany" --user "olddev@company.com"
+
+# 4. Update team permissions
+kavach org revoke "mycompany" --group "developers"
+kavach org grant "mycompany" --group "developers" --role admin
 ```
 
-### Multi-Organization Workflow
+### 3. Organization Management
 
 ```bash
 # 1. List all organizations
@@ -477,10 +552,11 @@ kavach org create client-projects --description "Client-specific projects"
 
 ### 4. Security Considerations
 
-- **Regular Access Review**: Periodically review and update permissions
+- **Regular Access Review**: Periodically review and update permissions using `list-bindings`
 - **Principle of Least Privilege**: Grant only necessary permissions
 - **User Group Management**: Use groups for easier permission management
-- **Audit Trail**: Monitor organization changes and access
+- **Activity Monitoring**: Monitor organization changes and access
+- **Permission Verification**: Use `list-bindings` to verify current permissions
 
 ## Troubleshooting
 
@@ -497,7 +573,7 @@ kavach org create client-projects --description "Client-specific projects"
    ```bash
    # Error: Access denied
    # Solution: Check your role in the organization
-   kavach org list
+   kavach org list-bindings "organization-name"
    ```
 
 3. **Duplicate Organization**
@@ -507,6 +583,14 @@ kavach org create client-projects --description "Client-specific projects"
    kavach org create new-org-name --description "New organization"
    ```
 
+4. **Permission Issues**
+   ```bash
+   # Check current permissions
+   kavach org list-bindings "organization-name"
+   
+   # Verify your role
+   kavach org list
+   ```
 
 ## Next Steps
 

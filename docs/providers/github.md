@@ -1,5 +1,8 @@
 ---
 sidebar_position: 3
+title: "GitHub Provider Configuration - Kavach Secret Management"
+description: "Configure GitHub integration with Kavach for secret synchronization. Learn how to set up GitHub Personal Access Tokens, configure repositories, and sync secrets to GitHub Actions."
+keywords: ["github provider", "github secrets", "github actions", "kavach github", "secret synchronization", "github pat", "personal access token", "kavach docs"]
 ---
 
 # GitHub Provider Configuration
@@ -192,7 +195,7 @@ kavach secret sync --provider github
 2. **Repository Access**
    - Limit token access to specific repositories
    - Use organization-level tokens for multiple repos
-   - Regularly audit token permissions
+   - Regularly review token permissions
 
 3. **Secret Naming**
    - Use consistent naming conventions

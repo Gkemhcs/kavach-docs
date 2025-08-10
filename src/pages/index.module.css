@@ -4,15 +4,15 @@
  */
 
 .heroBanner {
-  padding: 6rem 0;
+  padding: 1rem 0 6rem 0;
   text-align: center;
   position: relative;
   overflow: hidden;
   background: linear-gradient(135deg, #0f0f23 0%, #1a1a2e 25%, #16213e 50%, #0f3460 75%, #533483 100%);
   background-size: 400% 400%;
   animation: gradientShift 15s ease infinite;
-  margin-top: -60px; /* Merge with navbar */
-  padding-top: 120px; /* Add extra padding to account for navbar */
+  margin-top: 0; /* Remove negative margin */
+  padding-top: 0.5rem; /* Minimal top padding */
 }
 
 .heroBanner::before {
@@ -37,7 +37,13 @@
 
 @media screen and (max-width: 996px) {
   .heroBanner {
-    padding: 3rem 2rem;
+    padding: 1rem 2rem 3rem 2rem;
+    padding-top: 0.5rem;
+  }
+  
+  .heroDescription {
+    font-size: 1.1rem;
+    margin-bottom: 1.5rem;
   }
 }
 
@@ -50,6 +56,29 @@
 }
 
 .heroLogo {
+  margin-bottom: 2rem;
+  display: flex;
+  justify-content: center;
+}
+
+.heroDescription {
+  font-size: 1.2rem;
+  color: rgba(255, 255, 255, 0.9);
+  margin-bottom: 2rem;
+  max-width: 800px;
+  margin-left: auto;
+  margin-right: auto;
+  line-height: 1.6;
+}
+
+.heroDescription strong {
+  color: #fff;
+  font-weight: 600;
+}
+
+.logo {
+  width: 120px;
+  height: 120px;
   border-radius: 12px;
   box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
   transition: all 0.3s ease-in-out;
@@ -57,7 +86,488 @@
   border: 1px solid rgba(255, 255, 255, 0.1);
 }
 
-.heroLogo:hover {
+.logo:hover {
   transform: scale(1.05) translateY(-5px);
   box-shadow: 0 12px 40px rgba(0, 0, 0, 0.4);
+}
+
+/* Features Section */
+.featuresSection {
+  padding: 4rem 0;
+  background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+  position: relative;
+  z-index: 1;
+}
+
+/* Introduction Section for SEO */
+.introSection {
+  padding: 3rem 0;
+  background: #ffffff;
+  border-bottom: 1px solid #e1e5e9;
+}
+
+.introSection h2 {
+  font-size: 2.2rem;
+  font-weight: 700;
+  margin-bottom: 1.5rem;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.introSection p {
+  font-size: 1.1rem;
+  color: #555;
+  line-height: 1.7;
+  margin-bottom: 1rem;
+}
+
+.introSection strong {
+  color: #333;
+  font-weight: 600;
+}
+
+.sectionTitle {
+  font-size: 2.5rem;
+  font-weight: 700;
+  margin-bottom: 1rem;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.sectionSubtitle {
+  font-size: 1.2rem;
+  color: #666;
+  margin-bottom: 3rem;
+  max-width: 600px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.featureCard {
+  padding: 2rem;
+  border-radius: 16px;
+  color: white;
+  text-align: center;
+  height: 100%;
+  min-height: 280px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.15);
+  transition: all 0.3s ease;
+  position: relative;
+  overflow: hidden;
+}
+
+.featureCard::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(255, 255, 255, 0.1);
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.featureCard:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 16px 48px rgba(0, 0, 0, 0.25);
+}
+
+.featureCard:hover::before {
+  opacity: 1;
+}
+
+.featureIcon {
+  font-size: 3rem;
+  margin-bottom: 1rem;
+  filter: drop-shadow(0 4px 8px rgba(0, 0, 0, 0.2));
+}
+
+.featureTitle {
+  font-size: 1.5rem;
+  font-weight: 700;
+  margin-bottom: 1rem;
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+}
+
+.featureDescription {
+  font-size: 1rem;
+  line-height: 1.6;
+  opacity: 0.95;
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.3);
+}
+
+/* Development Status Section */
+.devStatusSection {
+  padding: 4rem 0;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  color: white;
+  position: relative;
+  z-index: 1;
+}
+
+.comingSoonCard {
+  background: rgba(255, 255, 255, 0.1);
+  padding: 3rem;
+  border-radius: 20px;
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+  margin-bottom: 3rem;
+}
+
+.comingSoonIcon {
+  font-size: 4rem;
+  margin-bottom: 1.5rem;
+  filter: drop-shadow(0 4px 8px rgba(0, 0, 0, 0.2));
+}
+
+.comingSoonCard h3 {
+  font-size: 2rem;
+  font-weight: 700;
+  margin-bottom: 1rem;
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+}
+
+.comingSoonCard p {
+  font-size: 1.1rem;
+  line-height: 1.6;
+  margin-bottom: 2rem;
+  opacity: 0.95;
+}
+
+.comingSoonBadge {
+  display: inline-block;
+  background: rgba(255, 255, 255, 0.2);
+  color: white;
+  padding: 0.5rem 1.5rem;
+  border-radius: 25px;
+  font-weight: 600;
+  font-size: 0.9rem;
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  backdrop-filter: blur(10px);
+}
+
+/* Help Us Section */
+.helpUsCard {
+  background: rgba(255, 255, 255, 0.15);
+  padding: 3rem;
+  border-radius: 20px;
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.25);
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.15);
+}
+
+.helpUsCard h3 {
+  font-size: 2rem;
+  font-weight: 700;
+  margin-bottom: 1.5rem;
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+  color: #fff;
+}
+
+.helpUsCard p {
+  font-size: 1.1rem;
+  line-height: 1.6;
+  margin-bottom: 2rem;
+  opacity: 0.95;
+  color: #fff;
+}
+
+.helpUsActions {
+  display: flex;
+  gap: 1rem;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.helpUsButton {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.75rem 1.5rem;
+  background: rgba(255, 255, 255, 0.2);
+  color: white;
+  text-decoration: none;
+  border-radius: 8px;
+  font-size: 1rem;
+  font-weight: 600;
+  transition: all 0.3s ease;
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  backdrop-filter: blur(10px);
+}
+
+.helpUsButton:hover {
+  background: rgba(255, 255, 255, 0.3);
+  color: white;
+  text-decoration: none;
+  transform: translateY(-2px);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+  border-color: rgba(255, 255, 255, 0.5);
+}
+
+/* Help Us Card in Header - Compact version */
+.heroBanner .helpUsCard {
+  background: rgba(255, 255, 255, 0.15);
+  padding: 2rem;
+  border-radius: 20px;
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.25);
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.15);
+  margin-bottom: 3rem;
+  max-width: 800px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.heroBanner .helpUsCard h3 {
+  font-size: 1.5rem;
+  font-weight: 700;
+  margin-bottom: 1rem;
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+  color: #fff;
+}
+
+.heroBanner .helpUsCard p {
+  font-size: 1rem;
+  line-height: 1.5;
+  margin-bottom: 1.5rem;
+  opacity: 0.95;
+  color: #fff;
+}
+
+.heroBanner .helpUsActions {
+  display: flex;
+  gap: 0.75rem;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.heroBanner .helpUsButton {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.6rem 1.2rem;
+  background: rgba(255, 255, 255, 0.2);
+  color: white;
+  text-decoration: none;
+  border-radius: 8px;
+  font-size: 0.9rem;
+  font-weight: 600;
+  transition: all 0.3s ease;
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  backdrop-filter: blur(10px);
+}
+
+.heroBanner .helpUsButton:hover {
+  background: rgba(255, 255, 255, 0.3);
+  color: white;
+  text-decoration: none;
+  transform: translateY(-2px);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+  border-color: rgba(255, 255, 255, 0.5);
+}
+
+/* Responsive Design */
+@media (max-width: 996px) {
+  .featureCard {
+    min-height: 250px;
+    padding: 1.5rem;
+  }
+  
+  .featureIcon {
+    font-size: 2.5rem;
+  }
+  
+  .featureTitle {
+    font-size: 1.3rem;
+  }
+  
+  .comingSoonCard {
+    padding: 2rem;
+  }
+  
+  .comingSoonIcon {
+    font-size: 3rem;
+  }
+  
+  .helpUsCard {
+    padding: 2rem;
+  }
+  
+  .helpUsActions {
+    flex-direction: column;
+    align-items: center;
+  }
+  
+  .helpUsButton {
+    width: 100%;
+    max-width: 250px;
+    justify-content: center;
+  }
+  
+  /* Header help us card responsive */
+  .heroBanner .helpUsCard {
+    padding: 1.5rem;
+    margin-bottom: 2rem;
+  }
+  
+  .heroBanner .helpUsCard h3 {
+    font-size: 1.3rem;
+  }
+  
+  .heroBanner .helpUsCard p {
+    font-size: 0.9rem;
+  }
+  
+  .heroBanner .helpUsActions {
+    flex-direction: column;
+    align-items: center;
+  }
+  
+  .heroBanner .helpUsButton {
+    width: 100%;
+    max-width: 200px;
+    justify-content: center;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .heroBanner {
+    padding: 0.75rem 1rem 2rem 1rem;
+    padding-top: 0.25rem;
+  }
+  
+  .heroDescription {
+    font-size: 1rem;
+    margin-bottom: 1.5rem;
+  }
+  
+  .introSection {
+    padding: 2rem 0;
+  }
+  
+  .introSection h2 {
+    font-size: 1.8rem;
+  }
+  
+  .introSection p {
+    font-size: 1rem;
+  }
+  
+  .sectionTitle {
+    font-size: 2rem;
+  }
+  
+  .sectionSubtitle {
+    font-size: 1rem;
+  }
+  
+  .featureCard {
+    min-height: 220px;
+    padding: 1.25rem;
+  }
+  
+  .featureIcon {
+    font-size: 2rem;
+  }
+  
+  .featureTitle {
+    font-size: 1.2rem;
+  }
+  
+  .featureDescription {
+    font-size: 0.9rem;
+  }
+  
+  .comingSoonCard,
+  .helpUsCard {
+    padding: 1.5rem;
+  }
+  
+  .comingSoonIcon {
+    font-size: 2.5rem;
+  }
+  
+  .helpUsCard h3 {
+    font-size: 1.5rem;
+  }
+  
+  .helpUsCard p {
+    font-size: 1rem;
+  }
+  
+  /* Header help us card responsive */
+  .heroBanner .helpUsCard {
+    padding: 1.25rem;
+    margin-bottom: 1.5rem;
+  }
+  
+  .heroBanner .helpUsCard h3 {
+    font-size: 1.2rem;
+  }
+  
+  .heroBanner .helpUsCard p {
+    font-size: 0.85rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .heroBanner {
+    padding: 0.5rem 0.5rem 1.5rem 0.5rem;
+    padding-top: 0.25rem;
+  }
+  
+  .heroDescription {
+    font-size: 0.9rem;
+    margin-bottom: 1rem;
+  }
+  
+  .introSection {
+    padding: 1.5rem 0;
+  }
+  
+  .introSection h2 {
+    font-size: 1.5rem;
+  }
+  
+  .introSection p {
+    font-size: 0.9rem;
+  }
+  
+  .comingSoonCard,
+  .helpUsCard {
+    padding: 1.25rem;
+  }
+  
+  .helpUsActions {
+    gap: 0.75rem;
+  }
+  
+  .helpUsButton {
+    font-size: 0.85rem;
+    padding: 0.5rem 1rem;
+  }
+  
+  /* Header help us card responsive */
+  .heroBanner .helpUsCard {
+    padding: 1rem;
+    margin-bottom: 1rem;
+  }
+  
+  .heroBanner .helpUsCard h3 {
+    font-size: 1.1rem;
+  }
+  
+  .heroBanner .helpUsCard p {
+    font-size: 0.8rem;
+  }
 }

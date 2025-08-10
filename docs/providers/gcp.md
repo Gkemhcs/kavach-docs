@@ -269,7 +269,7 @@ gcloud secrets list --filter="name:gcp-test-secret"
 
 1. **Principle of Least Privilege**
    - Only assign necessary roles
-   - Regularly review and audit permissions
+   - Regularly review permissions
    - Use custom roles for specific requirements
 
 2. **Key Management**

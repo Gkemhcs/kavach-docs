@@ -4,6 +4,30 @@ sidebar_position: 1
 
 # CLI Overview
 
+<div class="dev-alert">
+  <div class="dev-alert-content">
+    <div class="dev-alert-icon">🚧</div>
+    <div class="dev-alert-text">
+      <strong>🚀 Kavach CLI is currently in active development!</strong>
+      <p>
+        We're working hard to make Kavach the best secret management platform. 
+        Your feedback, suggestions, and contributions are invaluable to us!
+      </p>
+      <div class="dev-alert-actions">
+        <a href="https://github.com/Gkemhcs/kavach-cli/issues" target="_blank" rel="noopener noreferrer" class="dev-alert-button">
+          📝 Report Issues
+        </a>
+        <a href="https://github.com/Gkemhcs/kavach-cli/discussions" target="_blank" rel="noopener noreferrer" class="dev-alert-button">
+          💬 Join Discussion
+        </a>
+        <a href="mailto:gudikotieswarmani@gmail.com" class="dev-alert-button">
+          📧 Contact Us
+        </a>
+      </div>
+    </div>
+  </div>
+</div>
+
 The Kavach CLI (`kavach`) is the primary interface for interacting with the Kavach secret management platform. It provides a comprehensive set of commands for managing secrets, organizations, environments, and cloud provider integrations.
 
 ## Installation

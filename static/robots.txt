@@ -4,45 +4,17 @@
 User-agent: *
 Allow: /
 
-# Sitemap location
+# Sitemap
 Sitemap: https://docs.kavach.gkem.cloud/sitemap.xml
 
-# Crawl delay (optional - be respectful to the server)
-Crawl-delay: 1
-
-# Allow all major search engines
-User-agent: Googlebot
-Allow: /
-
-User-agent: Bingbot
-Allow: /
-
-User-agent: Slurp
-Allow: /
-
-User-agent: DuckDuckBot
-Allow: /
-
-User-agent: Baiduspider
-Allow: /
-
-User-agent: YandexBot
-Allow: /
-
-# Block access to admin or private areas (if any)
+# Disallow admin and private areas
 Disallow: /admin/
 Disallow: /private/
 Disallow: /api/
-Disallow: /_next/
-Disallow: /node_modules/
 
-# Allow important documentation pages
+# Allow all documentation pages
 Allow: /docs/
 Allow: /blog/
-Allow: /tutorials/
-Allow: /guides/
-Allow: /api/
-Allow: /cli/
-Allow: /architecture/
-Allow: /security/
-Allow: /examples/ 
+
+# Crawl delay (optional)
+Crawl-delay: 1 

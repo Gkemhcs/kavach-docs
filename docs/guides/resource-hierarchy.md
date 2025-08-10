@@ -226,6 +226,56 @@ kavach secret commit --message "Add production secrets"
 kavach secret sync --provider github
 ```
 
+## Permission Inheritance System
+
+Kavach implements a hierarchical permission system where permissions cascade down through the resource hierarchy. This means users and groups can inherit permissions from higher levels, reducing the need to manage permissions at every level individually.
+
+### How Inheritance Works
+
+```
+Organization Level
+├── User: ceo@company.com (admin role)
+├── Group: executives (viewer role)
+└── Direct permissions apply to all resources
+
+Secret Group Level
+├── Inherits permissions from Organization
+├── User: devops@company.com (editor role)
+├── Group: infrastructure (viewer role)
+└── Direct permissions apply to all environments in this group
+
+Environment Level
+├── Inherits permissions from Organization
+├── Inherits permissions from Secret Group
+├── User: john@company.com (admin role)
+├── Group: developers (editor role)
+└── Direct permissions are specific to this environment
+```
+
+### Example Inheritance Chain
+
+```bash
+# Organization level permissions
+kavach org grant "mycompany" --user "ceo@company.com" --role admin
+
+# Secret group inherits organization permissions
+# Plus additional direct permissions
+kavach group grant "myapp" --user "devops@company.com" --role editor --org "mycompany"
+
+# Environment inherits both organization and secret group permissions
+# Plus additional direct permissions
+kavach env grant "production" --user "john@company.com" --role admin --org "mycompany" --group "myapp"
+```
+
+### Viewing Inherited Permissions
+
+```bash
+# See all permissions including inherited ones
+kavach org list-bindings "mycompany"
+kavach group list-bindings "myapp" --org "mycompany"
+kavach env list-bindings "production" --org "mycompany" --group "myapp"
+```
+
 ## Best Practices
 
 ### 1. Permission Strategy
@@ -269,7 +319,7 @@ kavach env grant production --group "ops-team" --role admin --org "mycompany" --
 
 - **Regular Access Review**: Periodically review and update permissions
 - **Role Rotation**: Rotate admin roles regularly
-- **Audit Trail**: Monitor resource changes and access
+- **Activity Monitoring**: Monitor resource changes and access
 - **Secret Rotation**: Regularly rotate sensitive secrets
 
 ## Common Patterns

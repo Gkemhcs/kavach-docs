@@ -1,5 +1,8 @@
 ---
 sidebar_position: 6
+title: "User Group Commands - Kavach CLI Reference"
+description: "Manage user groups in Kavach using CLI commands. Create, list, delete, and manage group members for efficient access control."
+keywords: ["kavach user-group", "user group commands", "kavach cli", "group management", "access control", "rbac", "kavach docs", "team management"]
 ---
 
 # User Group Commands

@@ -112,7 +112,7 @@ Kavach defines four distinct roles with specific capabilities and limitations:
 - ❌ **Permission Management**: Cannot manage permissions
 
 **Use Cases**:
-- Auditors reviewing security configurations
+- Security teams reviewing configurations
 - Support teams troubleshooting issues
 - Read-only monitoring systems
 
@@ -405,7 +405,7 @@ user:devops@company.com, admin, /organizations/1k3o131
 user:developer@company.com, editor, /organizations/1k3o131
 
 # Organization viewer
-user:auditor@company.com, viewer, /organizations/1k3o131
+user:viewer@company.com, viewer, /organizations/1k3o131
 ```
 
 #### Secret Group-Level Access
@@ -586,7 +586,7 @@ Users with Editor role or higher can sync secrets to external providers using th
 
 - Start with Viewer role and escalate as needed
 - Grant permissions at the lowest possible level
-- Regularly review and audit permissions
+- Regularly review permissions
 
 ### 2. Role Assignment Strategy
 
@@ -606,17 +606,17 @@ Environments:
 
 User Groups:
   - Admin: HR, team leads (for managing group membership)
-  - Viewer: Auditors (for reviewing group assignments)
+  - Viewer: Security teams (for reviewing group assignments)
 ```
 
 ### 3. Security Considerations
 
 - **Secret Rotation**: Only Editors and above can rotate secrets
 - **Provider Access**: Admin role required for provider configuration changes
-- **Audit Logging**: All permission changes are logged
+- **Activity Logging**: All permission changes are logged (audit logs coming soon!)
 - **Resource Isolation**: Use secret groups to isolate different projects/teams
 
-### 4. Permission Auditing
+### 4. Permission Review
 
 Regular permission audits should include:
 - Review of explicit role assignments
@@ -634,6 +634,18 @@ Regular permission audits should include:
 **Solution**: Grant appropriate role at the correct resource level
 
 
+
+## 🔮 **Coming Soon: Enhanced Audit & Compliance**
+
+We're actively working on implementing comprehensive audit logging and compliance features to make Kavach even more enterprise-ready:
+
+- **🔍 Comprehensive Audit Logs**: Track every permission change, access attempt, and resource modification with detailed metadata
+- **📊 Compliance Reporting**: Built-in reports for SOC2, ISO27001, and other compliance frameworks
+- **🚨 Real-time Alerts**: Get notified of suspicious activities and policy violations
+- **📈 Permission Analytics**: Visualize access patterns and security metrics
+- **📋 Audit Trail**: Complete history of all RBAC changes and access attempts
+
+*Stay tuned for these powerful features that will make Kavach the most comprehensive and compliant secret management platform available!*
 
 ## Support and Resources
 
