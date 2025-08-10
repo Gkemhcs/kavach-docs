@@ -347,7 +347,7 @@ kavach provider configure azure \
 | `--key-vault-name` | Azure Key Vault name | `my-key-vault` |
 | `--org` | Kavach organization name | `mycompany` |
 | `--group` | Kavach secret group name | `myapp` |
-| `--env` | Kavach environment name | `production` |
+| `--env` | Kavach environment name | `prod` |
 
 ### Optional Parameters
 
@@ -527,7 +527,7 @@ kavach provider configure azure \
   --key-vault-name "dev-key-vault" \
   --org "mycompany" \
   --group "myapp" \
-  --env "development"
+  --env "dev"
 
 # Production environment
 kavach provider configure azure \
@@ -538,7 +538,7 @@ kavach provider configure azure \
   --key-vault-name "prod-key-vault" \
   --org "mycompany" \
   --group "myapp" \
-  --env "production"
+  --env "prod"
 ```
 
 ## Summary of Required Values

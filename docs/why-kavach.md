@@ -87,7 +87,7 @@ kavach secret sync --provider azure,gcp,github
 ```yaml
 Organization: my-company
 ├── Secret Groups: production-apps, development-tools
-│   ├── Environments: staging, prod, dev
+│   ├── Environments: dev, staging, prod
 │   │   ├── Secrets: database-url, api-keys, certificates
 │   │   └── Providers: azure-keyvault, gcp-secret-manager
 │   └── User Groups: dev-team, qa-team, ops-team
@@ -141,10 +141,8 @@ rotation:
 > 
 > Kavach supports only the following environment names:
 > - `dev` - Development environment
-> - `staging` - Staging environment  
+> - `staging` - Staging environment
 > - `prod` - Production environment
-> - `qa` - Quality assurance environment
-> - `testing` - Testing environment
 
 ### 🛡️ **Enterprise-Grade Security**
 

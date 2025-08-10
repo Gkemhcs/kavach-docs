@@ -191,7 +191,7 @@ The CLI configuration is stored in `~/.kavach/config.yaml`:
 # CLI Configuration
 organization: "my-company"
 secretgroup: "backend"
-environment: "production"
+environment: "prod"
 
 # Backend Configuration
 backend_endpoint: "https://kavach.gkem.cloud/api/v1/"

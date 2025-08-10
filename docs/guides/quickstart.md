@@ -55,12 +55,12 @@ kavach group create backend --description "Backend application secrets"
 kavach group activate backend
 
 # Create environments
-kavach env create development --description "Development environment"
+kavach env create dev --description "Development environment"
 kavach env create staging --description "Staging environment"
-kavach env create production --description "Production environment"
+kavach env create prod --description "Production environment"
 
 # Set development as active
-kavach env activate development
+kavach env activate dev
 ```
 
 ## Step 4: Store Your First Secrets
@@ -245,12 +245,12 @@ Keep environments separate and organized:
 
 ```bash
 # Development workflow
-kavach env activate development
+kavach env activate dev
 # Add/update development secrets
 kavach secret commit --message "Development updates"
 
 # Production workflow
-kavach env activate production
+kavach env activate prod
 # Add/update production secrets
 kavach secret commit --message "Production deployment"
 ```

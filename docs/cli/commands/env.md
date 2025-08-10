@@ -9,6 +9,19 @@ keywords: ["kavach env", "environment commands", "kavach cli", "environment mana
 
 🌍 Manage environments in Kavach - create, list, activate, and delete environments.
 
+## ⚠️ Important Alert: Environment Naming Convention
+
+> **🚨 CRITICAL UPDATE: Environment Names Restricted**
+> 
+> Kavach now supports **ONLY** the following environment names:
+> - `dev` - Development environment
+> - `staging` - Staging environment  
+> - `prod` - Production environment
+> 
+> **Previous environment names like `qa`, `testing`, etc. are no longer supported.**
+> 
+> If you have existing environments with unsupported names, please rename them to one of the allowed names before the next release.
+
 ## Overview
 
 Environments are the containers where your actual secrets are stored and managed. Each environment belongs to a secret group and can have different configurations for different deployment stages (development, staging, production).
@@ -26,8 +39,6 @@ Environments are the containers where your actual secrets are stored and managed
 - **dev**: For development and testing
 - **staging**: For pre-production testing
 - **prod**: For live production systems
-- **testing**: For automated testing environments
-- **qa**: For quality assurance testing
 
 > ⚠️ **Environment Naming Convention**
 > 
@@ -35,8 +46,6 @@ Environments are the containers where your actual secrets are stored and managed
 > - `dev` - Development environment
 > - `staging` - Staging environment  
 > - `prod` - Production environment
-> - `qa` - Quality assurance environment
-> - `testing` - Testing environment
 
 ### Available Roles
 
@@ -397,9 +406,9 @@ This demonstrates Kavach's hierarchical permission system where permissions casc
 
 ```bash
 # 1. Create environments
-kavach env create development --description "Development environment"
+kavach env create dev --description "Development environment"
 kavach env create staging --description "Staging environment"
-kavach env create production --description "Production environment"
+kavach env create prod --description "Production environment"
 
 # 2. List environments
 kavach env list
@@ -419,12 +428,12 @@ kavach env list-bindings development
 
 ```bash
 # 1. Work in development environment
-kavach env activate development
+kavach env activate dev
 kavach secret add --name "database-url" --value "postgresql://dev:pass@localhost:5432/dev"
 kavach secret commit --message "Add development secrets"
 
 # 2. Switch to production environment
-kavach env activate production
+kavach env activate prod
 kavach secret add --name "database-url" --value "postgresql://prod:pass@prod-db:5432/prod"
 kavach secret commit --message "Add production secrets"
 
@@ -438,9 +447,9 @@ kavach env list-bindings production
 
 ```bash
 # Good naming conventions
-kavach env create development --description "Development environment"
+kavach env create dev --description "Development environment"
 kavach env create staging --description "Staging environment"
-kavach env create production --description "Production environment"
+kavach env create prod --description "Production environment"
 
 # Avoid generic names
 kavach env create env --description "Environment"  # Too generic
@@ -474,4 +483,4 @@ After setting up your environments:
 
 1. **Store Secrets**: [Secret Management](/docs/cli/commands/secret)
 2. **Configure Providers**: [Provider Integration](/docs/cli/commands/provider)
-3. **Manage User Groups**: [User Group Management](/docs/cli/commands/user-group) 
+3. **Manage User Groups**: [User Group Management](/docs/cli/commands/user-group)

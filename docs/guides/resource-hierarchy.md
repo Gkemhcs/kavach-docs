@@ -103,11 +103,11 @@ kavach group grant --user "jane@company.com" --role admin --group "myapp"
 # Jane can: Create/delete environments, manage secrets, but cannot delete "myapp" secret group
 
 # Scenario 3: Environment editor
-kavach env grant --user "bob@company.com" --role editor --env "production"
+kavach env grant --user "bob@company.com" --role editor --env "prod"
 # Bob can: Add/modify secrets, but cannot grant permissions to others
 
 # Scenario 4: Environment viewer
-kavach env grant --user "alice@company.com" --role viewer --env "production"
+kavach env grant --user "alice@company.com" --role viewer --env "prod"
 # Alice can: View secrets only, no modifications allowed
 ```
 
@@ -153,15 +153,15 @@ kavach group activate myapp
 
 ```bash
 # Create environments for different stages
-kavach env create development --description "Development environment"
+kavach env create dev --description "Development environment"
 kavach env create staging --description "Staging environment"
-kavach env create production --description "Production environment"
+kavach env create prod --description "Production environment"
 
 # List environments
 kavach env list
 
 # Activate development environment
-kavach env activate development
+kavach env activate dev
 ```
 
 ### 👥 Step 5: Team Management
@@ -172,7 +172,7 @@ kavach user-group create developers --description "Development team"
 
 # Grant permissions to the user group
 kavach group grant "myapp" --group "developers" --role editor --org "mycompany"
-kavach env grant development --group "developers" --role editor --org "mycompany" --secret-group "myapp"
+kavach env grant dev --group "developers" --role editor --org "mycompany" --secret-group "myapp"
 
 # Add team members
 kavach user-group members add --group "developers" --user "john@company.com"
@@ -213,7 +213,7 @@ kavach secret sync --provider github
 
 ```bash
 # Switch to production environment
-kavach env activate production
+kavach env activate prod
 
 # Add production secrets
 kavach secret add --name "database-url" --value "postgresql://prod:pass@prod-db:5432/prod"
@@ -264,7 +264,7 @@ kavach group grant "myapp" --user "devops@company.com" --role editor --org "myco
 
 # Environment inherits both organization and secret group permissions
 # Plus additional direct permissions
-kavach env grant "production" --user "john@company.com" --role admin --org "mycompany" --group "myapp"
+kavach env grant "prod" --user "john@company.com" --role admin --org "mycompany" --group "myapp"
 ```
 
 ### Viewing Inherited Permissions
@@ -273,7 +273,7 @@ kavach env grant "production" --user "john@company.com" --role admin --org "myco
 # See all permissions including inherited ones
 kavach org list-bindings "mycompany"
 kavach group list-bindings "myapp" --org "mycompany"
-kavach env list-bindings "production" --org "mycompany" --group "myapp"
+kavach env list-bindings "prod" --org "mycompany" --group "myapp"
 ```
 
 ## Best Practices
@@ -282,8 +282,8 @@ kavach env list-bindings "production" --org "mycompany" --group "myapp"
 
 ```bash
 # Use principle of least privilege
-kavach env grant --user "viewer@company.com" --role viewer --env "production"
-kavach env grant --user "developer@company.com" --role editor --env "development"
+kavach env grant --user "viewer@company.com" --role viewer --env "prod"
+kavach env grant --user "developer@company.com" --role editor --env "dev"
 kavach env grant --user "admin@company.com" --role admin --env "staging"
 ```
 
@@ -305,14 +305,14 @@ kavach group create ops-team --description "Operations team resources"
 
 ```bash
 # Consistent environment naming
-kavach env create development --description "Development and testing"
+kavach env create dev --description "Development and testing"
 kavach env create staging --description "Pre-production testing"
 kavach env create production --description "Live production systems"
 
 # Environment-specific permissions
-kavach env grant development --group "developers" --role editor --org "mycompany" --secret-group "myapp"
+kavach env grant dev --group "developers" --role editor --org "mycompany" --secret-group "myapp"
 kavach env grant staging --group "qa-team" --role editor --org "mycompany" --secret-group "myapp"
-kavach env grant production --group "ops-team" --role admin --org "mycompany" --secret-group "myapp"
+kavach env grant prod --group "ops-team" --role admin --org "mycompany" --secret-group "myapp"
 ```
 
 ### 4. Security Considerations
@@ -332,15 +332,15 @@ kavach org create mycompany
 kavach group create webapp --description "Web application secrets"
 
 # Create environments
-kavach env create development --description "Development environment"
+kavach env create dev --description "Development environment"
 kavach env create staging --description "Staging environment"
-kavach env create production --description "Production environment"
+kavach env create prod --description "Production environment"
 
 # Grant team permissions
 kavach user-group create developers --description "Development team"
-kavach env grant development --group "developers" --role editor --org "mycompany" --secret-group "webapp"
+kavach env grant dev --group "developers" --role editor --org "mycompany" --secret-group "webapp"
 kavach env grant staging --group "developers" --role viewer --org "mycompany" --secret-group "webapp"
-kavach env grant production --group "developers" --role viewer --org "mycompany" --secret-group "webapp"
+kavach env grant prod --group "developers" --role viewer --org "mycompany" --secret-group "webapp"
 ```
 
 ### Microservices Architecture
@@ -352,9 +352,9 @@ kavach group create payment-service --description "Payment service secrets"
 kavach group create notification-service --description "Notification service secrets"
 
 # Create environments for each service
-kavach env create development --group "user-service"
+kavach env create dev --group "user-service"
 kavach env create staging --group "user-service"
-kavach env create production --group "user-service"
+kavach env create prod --group "user-service"
 ```
 
 ## Troubleshooting
@@ -368,7 +368,7 @@ kavach group list
 kavach env list
 
 # Verify specific resource access
-kavach secret list --env "production"
+kavach secret list --env "prod"
 ```
 
 ### Resource Hierarchy Issues
@@ -382,7 +382,7 @@ kavach org create mycompany
 kavach group create myapp --org "mycompany"
 
 # 3. Environment within secret group
-kavach env create production --group "myapp" --org "mycompany"
+kavach env create prod --group "myapp" --org "mycompany"
 ```
 
 ## Next Steps

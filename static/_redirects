@@ -1,0 +1,10 @@
+# Redirect blog-related URLs to main documentation
+/blog/* /docs/getting-started 301
+/authors/* /docs/getting-started 301
+/tags/* /docs/getting-started 301
+/blog /docs/getting-started 301
+/authors /docs/getting-started 301
+/tags /docs/getting-started 301
+
+# Redirect root blog path
+/blog/ /docs/getting-started 301

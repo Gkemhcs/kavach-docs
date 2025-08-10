@@ -130,7 +130,7 @@ kavach provider configure github \
 | `--repo` | GitHub repository name | `my-app` |
 | `--org` | Kavach organization name | `mycompany` |
 | `--group` | Kavach secret group name | `myapp` |
-| `--env` | Kavach environment name | `production` |
+| `--env` | Kavach environment name | `prod` |
 
 ### Optional Parameters
 
@@ -286,7 +286,7 @@ kavach provider configure github \
   --repo "backend-app" \
   --org "mycompany" \
   --group "backend" \
-  --env "production"
+  --env "prod"
 
 kavach provider configure github \
   --token "your-token" \
@@ -294,7 +294,7 @@ kavach provider configure github \
   --repo "frontend-app" \
   --org "mycompany" \
   --group "frontend" \
-  --env "production"
+  --env "prod"
 ```
 
 ### Organization-Level Configuration
@@ -320,7 +320,7 @@ kavach provider configure github \
   --repo "myapp-dev" \
   --org "mycompany" \
   --group "myapp" \
-  --env "development"
+  --env "dev"
 
 # Production environment
 kavach provider configure github \
@@ -329,7 +329,7 @@ kavach provider configure github \
   --repo "myapp-prod" \
   --org "mycompany" \
   --group "myapp" \
-  --env "production"
+  --env "prod"
 ```
 
 ## GitHub Actions Integration

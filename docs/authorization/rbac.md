@@ -205,11 +205,11 @@ Resource: Organization (my-company)
 ```yaml
 User: bob@company.com
 Role: Editor
-Resource: Secret Group (production-apps)
+Resource: Secret Group (prod-apps)
 ```
 
 **Result**: Bob can:
-- Create environments within the production-apps secret group
+- Create environments within the prod-apps secret group
 - Manage secrets and providers in those environments
 - Sync secrets to external providers
 - Cannot grant permissions to other users

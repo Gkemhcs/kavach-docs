@@ -2,6 +2,15 @@
 # Allow all search engines to crawl the documentation
 
 User-agent: *
+Disallow: /blog/
+Disallow: /authors/
+Disallow: /tags/
+Disallow: /blog
+Disallow: /authors
+Disallow: /tags
+
+# Allow documentation
+Allow: /docs/
 Allow: /
 
 # Sitemap
@@ -11,10 +20,6 @@ Sitemap: https://docs.kavach.gkem.cloud/sitemap.xml
 Disallow: /admin/
 Disallow: /private/
 Disallow: /api/
-
-# Allow all documentation pages
-Allow: /docs/
-Allow: /blog/
 
 # Crawl delay (optional)
 Crawl-delay: 1 

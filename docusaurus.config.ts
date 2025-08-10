@@ -48,6 +48,9 @@ const config: Config = {
             'https://github.com/Gkemhcs/kavach-docs/tree/main/',
         },
 
+        // Explicitly disable blog functionality
+        blog: false,
+
         theme: {
           customCss: './src/css/custom.css',
         },
@@ -56,11 +59,9 @@ const config: Config = {
         sitemap: {
           changefreq: 'weekly',
           priority: 0.5,
-          ignorePatterns: ['/tags/**'],
+          ignorePatterns: ['/tags/**', '/blog/**', '/authors/**'],
           filename: 'sitemap.xml',
         },
-
-       
 
         // Google Tag Manager
         gtag: {
@@ -81,6 +82,7 @@ const config: Config = {
       {name: 'author', content: 'Kavach Team'},
       {name: 'robots', content: 'index, follow'},
       {name: 'googlebot', content: 'index, follow'},
+      {name: 'googlebot-news', content: 'noindex, nofollow'},
     ],
     navbar: {
       title: 'Kavach Docs',
