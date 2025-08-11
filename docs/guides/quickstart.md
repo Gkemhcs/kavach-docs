@@ -18,7 +18,8 @@ This guide will walk you through setting up Kavach and managing your first secre
 
 ```bash
 # Download and install (Linux/macOS)
-curl -L https://github.com/Gkemhcs/kavach-cli/releases/latest/download/kavach-cli-linux-amd64 -o kavach
+curl -L https://github.com/Gkemhcs/kavach-cli/releases/download/v0.1.0-alpha.1/kavach-cli_Linux_x86_64.tar.gz -o kavach-cli_Linux_x86_64.tar.gz
+tar -xzf kavach-cli_Linux_x86_64.tar.gz
 chmod +x kavach
 sudo mv kavach /usr/local/bin/
 

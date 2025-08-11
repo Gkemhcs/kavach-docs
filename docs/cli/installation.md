@@ -22,7 +22,8 @@ Before installing the Kavach CLI, ensure you have:
 
 ```bash
 # Download the latest release
-curl -L https://github.com/Gkemhcs/kavach-cli/releases/latest/download/kavach-cli-linux-amd64 -o kavach
+curl -L https://github.com/Gkemhcs/kavach-cli/releases/download/v0.1.0-alpha.1/kavach-cli_Linux_x86_64.tar.gz -o kavach-cli_Linux_x86_64.tar.gz
+tar -xzf kavach-cli_Linux_x86_64.tar.gz
 
 # Make executable
 chmod +x kavach
@@ -38,7 +39,8 @@ kavach --version
 
 ```bash
 # Download the latest release
-curl -L https://github.com/Gkemhcs/kavach-cli/releases/latest/download/kavach-cli-darwin-amd64 -o kavach
+curl -L https://github.com/Gkemhcs/kavach-cli/releases/download/v0.1.0-alpha.1/kavach-cli_Darwin_x86_64.tar.gz -o kavach-cli_Darwin_x86_64.tar.gz
+tar -xzf kavach-cli_Darwin_x86_64.tar.gz
 
 # Make executable
 chmod +x kavach
@@ -54,7 +56,8 @@ kavach --version
 
 ```bash
 # Download the latest release
-curl -L https://github.com/Gkemhcs/kavach-cli/releases/latest/download/kavach-cli-darwin-arm64 -o kavach
+curl -L https://github.com/Gkemhcs/kavach-cli/releases/download/v0.1.0-alpha.1/kavach-cli_Darwin_arm64.tar.gz -o kavach-cli_Darwin_arm64.tar.gz
+tar -xzf kavach-cli_Darwin_arm64.tar.gz
 
 # Make executable
 chmod +x kavach
@@ -72,7 +75,7 @@ kavach --version
 
 ```powershell
 # Download the latest release
-Invoke-WebRequest -Uri "https://github.com/Gkemhcs/kavach-cli/releases/latest/download/kavach-cli-windows-amd64.exe" -OutFile "kavach.exe"
+Invoke-WebRequest -Uri "https://github.com/Gkemhcs/kavach-cli/releases/download/v0.1.0-alpha.1/kavach-cli_Windows_x86_64.exe" -OutFile "kavach.exe"
 
 # Move to system PATH (requires admin privileges)
 Move-Item -Path "kavach.exe" -Destination "C:\Windows\System32\"
@@ -85,7 +88,7 @@ kavach.exe --version
 
 ```cmd
 # Download the latest release
-curl -L -o kavach.exe https://github.com/Gkemhcs/kavach-cli/releases/latest/download/kavach-cli-windows-amd64.exe
+curl -L -o kavach.exe https://github.com/Gkemhcs/kavach-cli/releases/download/v0.1.0-alpha.1/kavach-cli_Windows_x86_64.exe
 
 # Move to system PATH (requires admin privileges)
 move kavach.exe C:\Windows\System32\
@@ -121,30 +124,7 @@ sudo mv kavach /usr/local/bin/
 kavach --version
 ```
 
-### Method 3: Using Package Managers
 
-#### Homebrew (macOS/Linux)
-
-```bash
-# Add the tap (if not already added)
-brew tap Gkemhcs/kavach
-
-# Install the CLI
-brew install kavach-cli
-
-# Verify installation
-kavach --version
-```
-
-#### Snap (Linux)
-
-```bash
-# Install via snap
-sudo snap install kavach-cli
-
-# Verify installation
-kavach --version
-```
 
 ## Configuration
 

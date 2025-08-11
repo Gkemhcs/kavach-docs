@@ -94,7 +94,7 @@ Choose your platform and install the Kavach CLI tool:
 #### Linux Installation
 ```bash
 # Download the latest release
-curl -L https://github.com/Gkemhcs/kavach-cli/releases/latest/download/kavach-cli_Linux_x86_64.tar.gz | tar -xz
+curl -L https://github.com/Gkemhcs/kavach-cli/releases/download/v0.1.0-alpha.1/kavach-cli_Linux_x86_64.tar.gz | tar -xz
 chmod +x kavach
 sudo mv kavach /usr/local/bin/
 ```
@@ -105,7 +105,7 @@ sudo mv kavach /usr/local/bin/
 brew install Gkemhcs/kavach-cli/kavach-cli
 
 # Or download manually
-curl -L https://github.com/Gkemhcs/kavach-cli/releases/latest/download/kavach-cli_Darwin_x86_64.tar.gz | tar -xz
+curl -L https://github.com/Gkemhcs/kavach-cli/releases/download/v0.1.0-alpha.1/kavach-cli_Darwin_x86_64.tar.gz | tar -xz
 chmod +x kavach
 sudo mv kavach /usr/local/bin/
 ```
