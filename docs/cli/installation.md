@@ -22,8 +22,25 @@ Before installing the Kavach CLI, ensure you have:
 
 ```bash
 # Download the latest release
-curl -L https://github.com/Gkemhcs/kavach-cli/releases/download/v0.1.0-alpha.1/kavach-cli_Linux_x86_64.tar.gz -o kavach-cli_Linux_x86_64.tar.gz
+curl -L https://github.com/Gkemhcs/kavach-cli/releases/download/v0.1.0-beta.1/kavach-cli_Linux_x86_64.tar.gz -o kavach-cli_Linux_x86_64.tar.gz
 tar -xzf kavach-cli_Linux_x86_64.tar.gz
+
+# Make executable
+chmod +x kavach
+
+# Move to system PATH (requires sudo)
+sudo mv kavach /usr/local/bin/
+
+# Verify installation
+kavach --version
+```
+
+#### Linux (ARM64)
+
+```bash
+# Download the latest release
+curl -L https://github.com/Gkemhcs/kavach-cli/releases/download/v0.1.0-beta.1/kavach-cli_Linux_arm64.tar.gz -o kavach-cli_Linux_arm64.tar.gz
+tar -xzf kavach-cli_Linux_arm64.tar.gz
 
 # Make executable
 chmod +x kavach
@@ -39,7 +56,7 @@ kavach --version
 
 ```bash
 # Download the latest release
-curl -L https://github.com/Gkemhcs/kavach-cli/releases/download/v0.1.0-alpha.1/kavach-cli_Darwin_x86_64.tar.gz -o kavach-cli_Darwin_x86_64.tar.gz
+curl -L https://github.com/Gkemhcs/kavach-cli/releases/download/v0.1.0-beta.1/kavach-cli_Darwin_x86_64.tar.gz -o kavach-cli_Darwin_x86_64.tar.gz
 tar -xzf kavach-cli_Darwin_x86_64.tar.gz
 
 # Make executable
@@ -56,7 +73,7 @@ kavach --version
 
 ```bash
 # Download the latest release
-curl -L https://github.com/Gkemhcs/kavach-cli/releases/download/v0.1.0-alpha.1/kavach-cli_Darwin_arm64.tar.gz -o kavach-cli_Darwin_arm64.tar.gz
+curl -L https://github.com/Gkemhcs/kavach-cli/releases/download/v0.1.0-beta.1/kavach-cli_Darwin_arm64.tar.gz -o kavach-cli_Darwin_arm64.tar.gz
 tar -xzf kavach-cli_Darwin_arm64.tar.gz
 
 # Make executable
@@ -75,7 +92,28 @@ kavach --version
 
 ```powershell
 # Download the latest release
-Invoke-WebRequest -Uri "https://github.com/Gkemhcs/kavach-cli/releases/download/v0.1.0-alpha.1/kavach-cli_Windows_x86_64.exe" -OutFile "kavach.exe"
+Invoke-WebRequest -Uri "https://github.com/Gkemhcs/kavach-cli/releases/download/v0.1.0-beta.1/kavach-cli_Windows_x86_64.zip" -OutFile "kavach-cli_Windows_x86_64.zip"
+
+# Extract the zip file
+Expand-Archive -Path "kavach-cli_Windows_x86_64.zip" -DestinationPath "."
+
+# Move to system PATH (requires admin privileges)
+Move-Item -Path "kavach.exe" -Destination "C:\Windows\System32\"
+
+# Verify installation
+kavach.exe --version
+```
+
+#### Windows (ARM64)
+
+**Using PowerShell:**
+
+```powershell
+# Download the latest release
+Invoke-WebRequest -Uri "https://github.com/Gkemhcs/kavach-cli/releases/download/v0.1.0-beta.1/kavach-cli_Windows_arm64.zip" -OutFile "kavach-cli_Windows_arm64.zip"
+
+# Extract the zip file
+Expand-Archive -Path "kavach-cli_Windows_arm64.zip" -DestinationPath "."
 
 # Move to system PATH (requires admin privileges)
 Move-Item -Path "kavach.exe" -Destination "C:\Windows\System32\"
@@ -85,6 +123,57 @@ kavach.exe --version
 ```
 
 **Using Command Prompt:**
+
+```cmd
+# Download the latest release
+curl -L -o kavach-cli_Windows_x86_64.zip https://github.com/Gkemhcs/kavach-cli/releases/download/v0.1.0-beta.1/kavach-cli_Windows_x86_64.zip
+
+# Extract the zip file
+tar -xf kavach-cli_Windows_x86_64.zip
+
+# Move to system PATH (requires admin privileges)
+move kavach.exe C:\Windows\System32\
+
+# Verify installation
+kavach.exe --version
+```
+
+### Method 2: Verify Download Integrity
+
+Before installing, you can verify the integrity of your download using the provided checksums:
+
+#### Download Checksums File
+
+```bash
+# Download the checksums file
+curl -L -o checksums.txt https://github.com/Gkemhcs/kavach-cli/releases/download/v0.1.0-beta.1/checksums.txt
+```
+
+#### Verify Downloads
+
+**Linux/macOS:**
+```bash
+# Verify Linux AMD64
+echo "b7798e523d7e323bd8b891110cf0d0edf69e348e22dc0e12911029d6a66ce02d kavach-cli_Linux_x86_64.tar.gz" | sha256sum -c
+
+# Verify Linux ARM64
+echo "894489a2beb9bba11977b38eac84c2e3151b990159544d0ed3ea09e9669da36a kavach-cli_Linux_arm64.tar.gz" | sha256sum -c
+
+# Verify macOS AMD64
+echo "6a7b5d5d38026caa6160d29e96c98a9c1d198a49e10609f62ba3e6a6f963a60b kavach-cli_Darwin_x86_64.tar.gz" | shasum -a 256 -c
+
+# Verify macOS ARM64
+echo "3e75daea233274f7891c585d8844f0667da5ec8a6ffc95cfc1f3ad018d4a5da5 kavach-cli_Darwin_arm64.tar.gz" | shasum -a 256 -c
+```
+
+**Windows:**
+```powershell
+# Verify Windows AMD64
+Get-FileHash -Algorithm SHA256 kavach-cli_Windows_x86_64.zip | Where-Object { $_.Hash -eq "5db2aa4577338fda4d0717396929ba6fb2731b2dfb6ae541a341e8bbf9b4f752" }
+
+# Verify Windows ARM64
+Get-FileHash -Algorithm SHA256 kavach-cli_Windows_arm64.zip | Where-Object { $_.Hash -eq "06f1d53bf5c1f99430a7b913cec51585badc38291a34bdf4cabd0f4817e87b1d" }
+```
 
 ```cmd
 # Download the latest release

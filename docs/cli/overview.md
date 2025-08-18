@@ -36,19 +36,34 @@ The Kavach CLI (`kavach`) is the primary interface for interacting with the Kava
 
 ```bash
 # Linux (AMD64)
-curl -L https://github.com/Gkemhcs/kavach-cli/releases/download/v0.1.0-alpha.1/kavach-cli_Linux_x86_64.tar.gz -o kavach-cli_Linux_x86_64.tar.gz
+curl -L https://github.com/Gkemhcs/kavach-cli/releases/download/v0.1.0-beta.1/kavach-cli_Linux_x86_64.tar.gz -o kavach-cli_Linux_x86_64.tar.gz
 tar -xzf kavach-cli_Linux_x86_64.tar.gz
 chmod +x kavach
 sudo mv kavach /usr/local/bin/
 
+# Linux (ARM64)
+curl -L https://github.com/Gkemhcs/kavach-cli/releases/download/v0.1.0-beta.1/kavach-cli_Linux_arm64.tar.gz -o kavach-cli_Linux_arm64.tar.gz
+tar -xzf kavach-cli_Linux_arm64.tar.gz
+chmod +x kavach
+sudo mv kavach /usr/local/bin/
+
 # macOS (AMD64)
-curl -L https://github.com/Gkemhcs/kavach-cli/releases/download/v0.1.0-alpha.1/kavach-cli_Darwin_x86_64.tar.gz -o kavach-cli_Darwin_x86_64.tar.gz
+curl -L https://github.com/Gkemhcs/kavach-cli/releases/download/v0.1.0-beta.1/kavach-cli_Darwin_x86_64.tar.gz -o kavach-cli_Darwin_x86_64.tar.gz
 tar -xzf kavach-cli_Darwin_x86_64.tar.gz
 chmod +x kavach
 sudo mv kavach /usr/local/bin/
 
+# macOS (ARM64/Apple Silicon)
+curl -L https://github.com/Gkemhcs/kavach-cli/releases/download/v0.1.0-beta.1/kavach-cli_Darwin_arm64.tar.gz -o kavach-cli_Darwin_arm64.tar.gz
+tar -xzf kavach-cli_Darwin_arm64.tar.gz
+chmod +x kavach
+sudo mv kavach /usr/local/bin/
+
 # Windows (AMD64)
-# Download from: https://github.com/Gkemhcs/kavach-cli/releases/download/v0.1.0-alpha.1/kavach-cli_Windows_x86_64.exe
+# Download from: https://github.com/Gkemhcs/kavach-cli/releases/download/v0.1.0-beta.1/kavach-cli_Windows_x86_64.zip
+
+# Windows (ARM64)
+# Download from: https://github.com/Gkemhcs/kavach-cli/releases/download/v0.1.0-beta.1/kavach-cli_Windows_arm64.zip
 ```
 
 ### Build from Source

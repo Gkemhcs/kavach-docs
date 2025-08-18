@@ -183,16 +183,11 @@ const config: Config = {
     
     // SEO and Search Configuration
     algolia: {
-      appId: '4URBUECIF9', // TODO: Replace with your Algolia app ID (e.g., ABCDEFGHIJ)
-      apiKey: '56e4f28e45a105abb484f37a3555c158', // TODO: Replace with your Algolia search API key (e.g., abc123def456...)
-      indexName: 'kavach-docs',
+      appId: '4URBUECIF9',
+      apiKey: '56e4f28e45a105abb484f37a3555c158',
+      indexName: 'Kavach secret Manager Docs',
       contextualSearch: true,
       searchParameters: {},
-      externalUrlRegex: 'external\\.com|domain\\.com',
-      replaceSearchResultPathname: {
-        from: '/docs/',
-        to: '/',
-      },
       searchPagePath: 'search',
     },
   } satisfies Preset.ThemeConfig,
